@@ -1,0 +1,34 @@
+﻿<Window x:Class="Hotel.View.AllUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Hotel.ViewModel"
+        xmlns:X="clr-namespace:Hotel.Commands"
+        mc:Ignorable="d"
+        Title="AllUsers" Height="450" Width="400">
+    <Window.Resources>
+        <vm:UserVM x:Key="UserViewModel"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource UserViewModel}}">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFB4B4EC" Offset="0.257"/>
+                <GradientStop Color="#FFFB956F" Offset="1"/>
+                <GradientStop Color="#FFB4B4EC" Offset="0.135"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListView x:Name="UserView" ItemsSource="{Binding Users}" Margin="62,64,0,119" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Width="242">
+
+            <ListView.View>
+                <GridView x:Name="UsersGrid">
+                    <GridViewColumn x:Name="NameCol" Header="Current users"  Width="120" DisplayMemberBinding="{Binding Username}"/>
+                    <GridViewColumn x:Name="TypeCol" Header="Types"  DisplayMemberBinding="{Binding Type}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Close" Command="{Binding CloseCommand}"
+        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}" HorizontalAlignment="Left" Margin="267,356,0,0" VerticalAlignment="Top" Width="99" Height="38" FontSize="20"/>
+    </Grid>
+</Window>

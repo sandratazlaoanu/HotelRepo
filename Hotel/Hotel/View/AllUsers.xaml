@@ -23,12 +23,9 @@
             <ListView.View>
                 <GridView x:Name="UsersGrid">
                     <GridViewColumn x:Name="NameCol" Header="Current users"  Width="120" DisplayMemberBinding="{Binding Username}"/>
-                    <GridViewColumn x:Name="TypeCol" Header="Types"  DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn x:Name="TypeCol" Header="Types" Width="120"  DisplayMemberBinding="{Binding Type}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Close" Command="{Binding CloseCommand}"
-        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
-                           AncestorType={x:Type Window}}}" HorizontalAlignment="Left" Margin="267,356,0,0" VerticalAlignment="Top" Width="99" Height="38" FontSize="20"/>
     </Grid>
 </Window>

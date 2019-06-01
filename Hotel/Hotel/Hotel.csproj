@@ -152,13 +152,20 @@
     <Compile Include="Exceptions\LoginException.cs" />
     <Compile Include="Model\ExtraService.cs" />
     <Compile Include="Operations\LoginOperations.cs" />
+    <Compile Include="Operations\RoomOperations.cs" />
     <Compile Include="Operations\UserOperations.cs" />
     <Compile Include="Property\BasePropertyChanged.cs" />
+    <Compile Include="Repository\BookingRepository.cs" />
+    <Compile Include="Repository\ExtraServiceRepository.cs" />
+    <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Util\LoginActions.cs" />
     <Compile Include="Util\Utils.cs" />
     <Compile Include="Util\Validator.cs" />
+    <Compile Include="ViewModel\BookingVM.cs" />
+    <Compile Include="ViewModel\ExtraServicesVM.cs" />
     <Compile Include="ViewModel\LoginVM.cs" />
+    <Compile Include="ViewModel\RoomVM.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
     <Compile Include="View\Administrator.xaml.cs">
       <DependentUpon>Administrator.xaml</DependentUpon>
@@ -171,6 +178,9 @@
     </Compile>
     <Compile Include="View\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExtraServices.xaml.cs">
+      <DependentUpon>ExtraServices.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Unauthenticated.xaml.cs">
       <DependentUpon>Unauthenticated.xaml</DependentUpon>
@@ -200,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ExtraServices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,19 +1,21 @@
-﻿using Hotel.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Hotel.View;
+using Hotel.ViewModel;
 
 namespace Hotel.Operations
 {
-    class UserOperations
+    public class UserOperations
     {
         private UserVM vm;
         
         public UserOperations(UserVM vm)
         {
             this.vm = vm;
+        }
+
+        public void Exit(object param)
+        {
+            AllUsers window = new AllUsers();
+            window.Exit();
         }
     }
 }

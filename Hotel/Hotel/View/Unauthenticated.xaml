@@ -4,9 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel.View"
+        xmlns:vm="clr-namespace:Hotel.ViewModel"
         mc:Ignorable="d"
-        Title="Unauthenticated" Height="450" Width="800">
-    <Grid>
-        
+        Title="Unauthenticated" Height="450" Width="600">
+    <Window.Resources>
+        <vm:RoomVM x:Key="JustViewRoomsDC"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource JustViewRoomsDC}}">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF227E76" Offset="0.848"/>
+                <GradientStop Color="#FFA8F1C3" Offset="0.704"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding Rooms}" Grid.Column="1" Grid.RowSpan="3" FontFamily="Calibri" FontSize="16">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Type}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Type" Content="Type"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding IsAvailable}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Av" Content="Is Available?"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StandardPrice}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price" Content="Price" Width="158"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Search" Command="{Binding BuyProductCommand}" CommandParameter="{Binding}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Calibri" FontSize="16" Margin="5" Padding="5" Width="75"/>
     </Grid>
 </Window>

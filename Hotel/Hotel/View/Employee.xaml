@@ -4,9 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotel.View"
+        xmlns:vm="clr-namespace:Hotel.ViewModel"
         mc:Ignorable="d"
         Title="Employee" Height="450" Width="800">
-    <Grid>
-        
+    <Window.Resources>
+        <vm:BookingVM x:Key="BookingView"/>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource BookingView}}" Margin="0,0,0,-3">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF227E76" Offset="0.848"/>
+                <GradientStop Color="#FFA8F1C3" Offset="0.704"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding Bookings}" FontFamily="Calibri" FontSize="16" Margin="61,103,44,108" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Start}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Start" Content="Start" Width="175"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding End}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="End" Content="End" Width="181"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding IsActive}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Av" Content="Is active?" Width="141"/>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Price}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Price" Content="Price" Width="219" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add" Margin="85,328,627,54" Grid.ColumnSpan="2"/>
+        <Button Content="Delete " Margin="487,329,93,54" Grid.Column="1"/>
+        <Label Content="Booking list" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="369" Height="93" FontSize="70" FontFamily="Edwardian Script ITC" Grid.Column="1"/>
     </Grid>
 </Window>

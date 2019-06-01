@@ -11,10 +11,6 @@ namespace Hotel.View
         {
             InitializeComponent();
 
-            //UserRepository repo = new UserRepository();
-            //List<User> items = repo.GetAll();
-            //UserView.Items.Add(items);
-
         }
 
         public void Exit()

@@ -1,8 +1,11 @@
-﻿using Hotel.Model;
+﻿using Hotel.Commands;
+using Hotel.Model;
+using Hotel.Operations;
 using Hotel.Property;
 using Hotel.Repository;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace Hotel.ViewModel
 {
@@ -27,5 +30,21 @@ namespace Hotel.ViewModel
             return oc;
         }
         public ObservableCollection<User> Users { get => users; set => users = ReturnCollection(); }
+
+        private ICommand exitCommand;
+
+        public ICommand ExitCommand
+        {
+            get
+            {
+                if (exitCommand == null)
+                {
+                    UserOperations operation = new UserOperations(this);
+                    exitCommand = new RelayCommand(operation.Exit);
+                }
+
+                return exitCommand;
+            }
+        }
     }
 }

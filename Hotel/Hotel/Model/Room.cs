@@ -2,12 +2,16 @@
 
 namespace Hotel.Model
 {
-    class Room
+    public class Room
     {
         private int id;
         private String type;
         private bool isAvailable;
         private float standardPrice;
+        private int v1;
+        private string v2;
+        private string v3;
+        private string v4;
 
         public Room(int id, String type, bool isAvailable, float stdPrice)
         {

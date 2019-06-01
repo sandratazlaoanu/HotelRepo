@@ -2,11 +2,13 @@
 using Hotel.Model;
 using System;
 using System.Collections.Generic;
+using Hotel.Repository;
 
 namespace Hotel.Util
 {
     public static class LoginActions
     {
+
         public static void Login(List<User> users, string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -31,6 +33,8 @@ namespace Hotel.Util
 
         public static void Register(List<User> users, string username, string password, String usertype)
         {
+            UserRepository repo = new UserRepository();
+
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 throw new LoginException("Complete fields first!");
@@ -47,11 +51,8 @@ namespace Hotel.Util
             User userToAdd = new User(username, password);
             users.Add(userToAdd);
 
+            repo.Save(userToAdd);
             //----AICI QUERY PENTRU INSERT IN DB----------
-            //using (StreamWriter streamWriter = File.AppendText(Utils.usersPath))
-            //{
-            //    streamWriter.WriteLine(userToAdd.ToWriteString());
-            //}
         }
     }
 }

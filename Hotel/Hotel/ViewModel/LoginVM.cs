@@ -123,10 +123,10 @@ namespace Hotel.ViewModel
                 if (registerEmployeeCommand == null)
                 {
                     LoginOperations operation = new LoginOperations(this);
-                    registerClientCommand = new RelayCommand(operation.RegisterClient);
+                    registerEmployeeCommand = new RelayCommand(operation.RegisterEmployee);
                 }
 
-                return registerClientCommand;
+                return registerEmployeeCommand;
             }
         }
 

@@ -2,7 +2,7 @@
 
 namespace Hotel.Model
 {
-    class ExtraService
+    public class ExtraService
     {
         private int id;
         private String type;

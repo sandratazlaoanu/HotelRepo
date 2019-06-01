@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Hotel.Model
 {
-    class Booking
+    public class Booking
     {
         private int id;
         private DateTime start;

@@ -2,6 +2,7 @@
 using Hotel.Util;
 using Hotel.View;
 using Hotel.ViewModel;
+using System;
 using System.Windows;
 
 namespace Hotel.Operations
@@ -43,7 +44,7 @@ namespace Hotel.Operations
                     default:
                         MessageBox.Show("Type not allowed.");
                         break;
-                    
+
                 }
             }
             catch (LoginException ex)
@@ -94,6 +95,42 @@ namespace Hotel.Operations
             {
                 MessageBox.Show("Eroare la inregistrare: " + ex.Message, "Eroare", MessageBoxButton.OKCancel);
             }
+        }
+
+        public void ViewUsers(object param)
+        {
+            LoginVM viewModel = param as LoginVM;
+            try
+            {
+                LoginActions.ViewUsers();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show("Could not view users.");
+            }
+        }
+
+        public void NotLoggedView(object param)
+        {
+            LoginVM viewModel = param as LoginVM;
+            try
+            {
+                LoginActions.NotLoggedView();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not view rooms.");
+            }
+        }
+
+        public void CloseCommand(object param)
+        {
+            LoginVM viewModel = param as LoginVM;
+           
+            LoginActions.Close();
+            
         }
 
     }

@@ -146,7 +146,47 @@ namespace Hotel.ViewModel
             }
         }
 
+        private ICommand viewAllUsers;
+        public ICommand ViewAllUsers
+        {
+            get
+            {
+                if (viewAllUsers == null)
+                {
+                    LoginOperations operation = new LoginOperations(this);
+                    viewAllUsers = new RelayCommand(operation.ViewUsers);
+                }
 
+                return viewAllUsers;
+            }
+        }
 
+        private ICommand notLoggedView;
+        public ICommand NotLogged
+        {
+            get
+            {
+                if(notLoggedView == null)
+                {
+                    LoginOperations operation = new LoginOperations(this);
+                    notLoggedView = new RelayCommand(operation.NotLoggedView);
+                }
+                return notLoggedView;
+            }
+        }
+
+        private ICommand closeCommand;
+        public ICommand CloseCommand
+        {
+            get
+            {
+                if(closeCommand == null)
+                {
+                    LoginOperations operation = new LoginOperations(this);
+                    closeCommand = new RelayCommand(operation.CloseCommand);
+                }
+                return closeCommand;
+            }
+        }
     }
 }

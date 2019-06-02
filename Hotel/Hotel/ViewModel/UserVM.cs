@@ -13,6 +13,7 @@ namespace Hotel.ViewModel
     {
         private UserRepository repo = new UserRepository();
         private ObservableCollection<User> users;
+
         public UserVM()
         {
             this.users = ReturnCollection();

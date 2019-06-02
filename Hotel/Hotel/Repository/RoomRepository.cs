@@ -167,14 +167,6 @@ namespace Hotel.Repository
                 }
             }
         }
-
-        public int LastIndex()
-        {
-            List<Room> Rooms = GetAll();
-            int index = Rooms.Capacity + 1;
-            return index;
-
-        }
     }
 }
 

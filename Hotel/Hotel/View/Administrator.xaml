@@ -35,7 +35,7 @@
                             <GridViewColumnHeader Tag="Av" Content="Is Available?" Width="155"/>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Price}">
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding StandardPrice}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Price" Content="Price" Width="233"/>
                         </GridViewColumn.Header>

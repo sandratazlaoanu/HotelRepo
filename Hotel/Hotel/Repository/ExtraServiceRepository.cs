@@ -157,13 +157,5 @@ namespace Hotel.Repository
                 }
             }
         }
-
-        public int LastIndex()
-        {
-            List<ExtraService> extraServices = GetAll();
-            int index = extraServices.Capacity + 1;
-            return index;
-
-        }
     }
 }

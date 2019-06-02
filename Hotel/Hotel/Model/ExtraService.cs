@@ -34,16 +34,6 @@ namespace Hotel.Model
             return false;
         }
 
-        public static bool operator ==(ExtraService t1, ExtraService t2)
-        {
-            return t1.Id == t2.Id;
-        }
-
-        public static bool operator !=(ExtraService t1, ExtraService t2)
-        {
-            return t1.Id != t2.Id;
-        }
-
         public override string ToString()
         {
             return string.Format("Extra stuff: {0} {1}", this.Type, this.Price);

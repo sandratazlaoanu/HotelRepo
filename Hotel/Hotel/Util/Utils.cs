@@ -1,12 +1,14 @@
 ﻿using Hotel.Model;
 using System.Collections.Generic;
 using Hotel.Repository;
+using System.Data;
+using System;
 
 namespace Hotel.Util
 {
     public static class Utils
     {
-        private static UserRepository userRepo;
+        private static UserRepository userRepo = new UserRepository();
         private static RoomRepository roomRepository;
         private static List<User> users;
 
@@ -34,9 +36,14 @@ namespace Hotel.Util
 
         public static List<User> InitUsers()
         {
-            userRepo = new UserRepository();
             Users = userRepo.GetAll();
 
+            foreach (User user in Users)
+            {
+                // User userToAdd = new User(AuthUser.Username, AuthUser.Password, AuthUser.Type);
+                Users = new List<User>();
+                Users.Add(user);
+            }
             return Users;
         }
 

@@ -42,16 +42,6 @@ namespace Hotel.Model
             return false;
         }
 
-        public static bool operator == (Room t1, Room t2)
-        {
-            return t1.Id == t2.Id;
-        }
-
-        public static bool operator !=(Room t1, Room t2)
-        {
-            return t1.Id != t2.Id;
-        }
-
         public override string ToString()
         {
             return string.Format("Room: {0} {1}", this.Type, this.StandardPrice);

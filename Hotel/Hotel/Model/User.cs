@@ -50,23 +50,15 @@ namespace Hotel.Model
 
         public override bool Equals(object obj)
         {
-            if (obj is User)
+            var item = obj as User;
+
+            if (item == null)
             {
-                User st = obj as User;
-                return Id == st.Id;
+                return false;
             }
-            return false;
+
+            return this.Id.Equals(item.Id);
         }
-
-        //public static bool operator ==(User t1, User t2)
-        //{
-        //    return t1.Id == t2.Id;
-        //}
-
-        //public static bool operator !=(User t1, User t2)
-        //{
-        //    return t1.Id != t2.Id;
-        //}
 
         public override string ToString()
         {

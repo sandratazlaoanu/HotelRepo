@@ -1,4 +1,5 @@
 ﻿using Hotel.Connection;
+using Hotel.Model;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -16,5 +17,9 @@ namespace Hotel
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

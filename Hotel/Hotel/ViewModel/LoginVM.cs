@@ -22,6 +22,22 @@ namespace Hotel.ViewModel
             Users = Utils.InitUsers();
         }
 
+        private int id;
+
+        public int Id
+        {
+            get
+            {
+                return this.id;
+            
+            }
+
+            set
+            {
+                this.id = value;
+                NotifyPropertyChanged("Id");
+            }
+        }
         private string username;
 
         public string Username

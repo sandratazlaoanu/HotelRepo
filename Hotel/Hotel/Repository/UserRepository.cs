@@ -2,6 +2,7 @@
 using Hotel.Model;
 using Hotel.ViewModel;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Hotel.Repository
@@ -68,9 +69,6 @@ namespace Hotel.Repository
 
             using (var cmd = new SqlCommand(select, connection))
             {
-                var param1 = cmd.CreateParameter();
-                param1.ParameterName = "@id";
-                param1.Value = User.Id;
 
                 var param2 = cmd.CreateParameter();
                 param2.ParameterName = "@username";
@@ -84,19 +82,27 @@ namespace Hotel.Repository
                 param4.ParameterName = "@type";
                 param4.Value = User.Type;
 
+                var param5 = cmd.CreateParameter();
+                param5.ParameterName = "@isActive";
+                param5.Value = User.IsActive;
 
-                cmd.Parameters.Add(param1);
-                cmd.Parameters.Add(param2);
-                cmd.Parameters.Add(param3);
-                cmd.Parameters.Add(param4);
 
+                cmd.Parameters.AddWithValue("@username", param2.ToString());
+                cmd.Parameters.AddWithValue("@password", param3.ToString());
+                cmd.Parameters.AddWithValue("@type", param4.ToString());
+               // cmd.Parameters.AddWithValue("@isActive", ;
+
+                //cmd.Parameters.AddWithValue("@username", SqlDbType.NChar);
+                //cmd.Parameters.AddWithValue("@password", SqlDbType.NChar);
+                //cmd.Parameters.AddWithValue("@type", SqlDbType.NChar);
+                //cmd.Parameters.AddWithValue("@isActive", SqlDbType.Bit);
                 int affectedRows = cmd.ExecuteNonQuery();
                 if (affectedRows != 0)
                 {
 
-                    User ang = new User(User.Id, User.Username, User.Password, User.Type);
+                    User user = new User(User.Id, User.Username, User.Password, User.Type);
                     connection.Close();
-                    return ang;
+                    return user;
                 }
                 else
                 {

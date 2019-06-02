@@ -4,15 +4,22 @@ using Hotel.Repository;
 
 namespace Hotel.Util
 {
-   public static class Utils
+    public static class Utils
     {
         private static UserRepository userRepo;
         private static RoomRepository roomRepository;
+        private static List<User> users;
 
         public static List<User> Users
         {
-            get;
-            set;
+            get
+            {
+                return userRepo.GetAll();
+            }
+            set
+            {
+                users = userRepo.GetAll();
+            }
         }
         public static List<Room> Rooms
         {

@@ -3,6 +3,10 @@ using Hotel.Model;
 using System;
 using System.Collections.Generic;
 using Hotel.Repository;
+using System.Data.SqlClient;
+using Hotel.Connection;
+using System.Data;
+using System.Windows;
 
 namespace Hotel.Util
 {
@@ -23,15 +27,16 @@ namespace Hotel.Util
                     Utils.AuthUser = user;
                     break;
                 }
-            }
 
-            if (Utils.AuthUser == null)
-            {
-                throw new LoginException("Wrong authentification!");
+
+                if (Utils.AuthUser == null)
+                {
+                    throw new LoginException("Wrong authentification!");
+                }
             }
         }
 
-        public static void Register(List<User> users, string username, string password, String usertype)
+        public static void Register(List<User> users, string username, string password, String userType)
         {
             UserRepository repo = new UserRepository();
 
@@ -47,12 +52,10 @@ namespace Hotel.Util
                     throw new LoginException("This username already exists!");
                 }
             }
-
-            User userToAdd = new User(username, password);
+            User userToAdd = new User(username, password,userType);
             users.Add(userToAdd);
 
             repo.Save(userToAdd);
-            //----AICI QUERY PENTRU INSERT IN DB----------
         }
     }
 }

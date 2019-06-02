@@ -28,7 +28,14 @@ namespace Hotel.Model
             this.Type = type;
             this.isActive = true;
         }
-
+        public User(string username, string password, String type)
+        {
+            this.Id = id;
+            this.Username = username;
+            this.Password = password;
+            this.Type = type;
+            this.isActive = true;
+        }
         public int Id { get => id; set => id = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
@@ -51,15 +58,15 @@ namespace Hotel.Model
             return false;
         }
 
-        public static bool operator ==(User t1, User t2)
-        {
-            return t1.Id == t2.Id;
-        }
+        //public static bool operator ==(User t1, User t2)
+        //{
+        //    return t1.Id == t2.Id;
+        //}
 
-        public static bool operator !=(User t1, User t2)
-        {
-            return t1.Id != t2.Id;
-        }
+        //public static bool operator !=(User t1, User t2)
+        //{
+        //    return t1.Id != t2.Id;
+        //}
 
         public override string ToString()
         {
